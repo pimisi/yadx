@@ -1,0 +1,202 @@
+<!-- Section A Starts -->
+<section id="advertisers" class="base-content main-padding">
+    <!-- Portfolio Item Row -->
+    <div class="row about-us section-content">
+
+        <div class="col-lg-3 col-md-2 contact-us-info"></div>
+
+        <div class="col-lg-6 col-md-6 col-sm-7 contact-us-form-box">
+            <form novalidate class="form-horizontal" name="contactForm">
+                <fieldset>
+                    <div ng-if="contactForm.isProcessing || contactForm.completed"
+                            ng-class="{'completed-alert': contactForm.completed}">
+                        <alert type="{$ alert.type $}">{$ alert.msg $}</alert>
+                    </div>
+                    <!-- Form Name -->
+                    <legend>Contact Us</legend>
+
+                    <div ng-show="!contactForm.completed">
+                        <!-- Text input-->
+                        <div class="form-group contact-name">
+                            <div class="col-md-6">
+                                <input ng-disabled="contactForm.isProcessing"
+                                       ng-model="contact.firstname" id="txtFirstname" name="txtFirstname" type="text"
+                                       placeholder="Firstname - Required"
+                                       class="form-control input-md" required="true">
+                                <div class="input-error"
+                                     ng-show="contactForm.$submitted
+                                     || (contactForm.txtFirstname.$touched && contactForm.txtFirstname.$invalid)">
+                                  <div ng-show="contactForm.txtFirstname.$error.required">
+                                      Please tell us your Firstname name.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 input-group-sibling">
+                                <input ng-disabled="contactForm.isProcessing"
+                                       ng-model="contact.lastname" id="txtLastname" name="txtLastname" type="text"
+                                       placeholder="Lastname"
+                                       class="form-control input-md">
+                            </div>
+
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input ng-disabled="contactForm.isProcessing"
+                                       ng-model="contact.email" name="txtEmail" type="email"
+                                       placeholder="Email Address - Required"
+                                       class="form-control input-md" required="true">
+                                <div class="col-xs-12 input-error"
+                                     ng-show="contactForm.$submitted
+                                     || (contactForm.txtEmail.$touched && contactForm.txtEmail.$invalid)">
+                                    <div ng-show="contactForm.txtEmail.$error.required">
+                                        Please include your email address</div>
+                                    <div ng-show="contactForm.txtEmail.$error.email">
+                                        The email address you've entered is not valid</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Button Drop Down -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="btn-group fill-button-group-b">
+                                    <!-- <button type="button" class="btn btn-default">{$ contact.country $}</button> -->
+                                    <button ng-disabled="contactForm.isProcessing"
+                                            class="btn btn-default dropdown-toggle"
+                                            type="button" id="selCountry" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        {$ contact.country $}
+                                        <span class="caret"></span>
+                                        <!-- <span class="sr-only">Toggle Dropdown</span> -->
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="country in countries">
+                                            <a ng-click="selectCountry($index)">{$ country.name $}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="btn-group fill-button-group-b input-button">
+                                    <!-- <button type="button" class="btn btn-default">{$ contact.subject $}</button> -->
+                                    <input ng-disabled="contactForm.isProcessing" ng-model="contact.subject" class="btn btn-default dropdown-toggle"
+                                           type="button" id="selSubject" name="selSubject" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="true"
+                                           valid-subject="subject" value="{$ contact.subject $}">
+
+                                        <span class="caret"></span>
+                                        <!-- <span class="sr-only">Toggle Dropdown</span> -->
+                                    <!-- </input> -->
+                                    <ul class="dropdown-menu" aria-labelledby="selSubject">
+                                        <li ng-repeat="subject in subjects">
+                                            <a ng-click="selectSubject($index)">{$ subject.label $}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 input-error"
+                                     ng-show="contactForm.$submitted
+                                     || (contactForm.subject.$touched && contactForm.subject.$invalid)">
+                                  <div ng-show="contactForm.selSubject.$error.subject">
+                                      Please tell us what you are contacting us about
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea ng-disabled="contactForm.isProcessing" class="form-control" ng-model="contact.message" rows="5"
+                                          placeholder="Type your message here - Required" name="txtAMessage"
+                                          required="true" minlength="10"></textarea>
+                                <div class="col-xs-12 input-error"
+                                     ng-show="contactForm.$submitted
+                                     || (contactForm.txtAMessage.$touched && contactForm.txtAMessage.$invalid)">
+                                  <div ng-show="contactForm.txtAMessage.$error.required">Please add your message</div>
+                                    <div ng-show="contactForm.txtAMessage.$error.minlength">The message must be at least 10 characters long</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group button-row">
+                            <div class="col-md-12">
+                                <input ng-disabled="contactForm.isProcessing" type="button" class="btn btn-default" ng-click="reset()" value="Reset" />
+                                <input ng-disabled="contactForm.isProcessing" type="submit" name="btnSend" class="btn btn-primary" ng-click="processForm(contactForm)">
+                                </input>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-5 contact-us-info-box bgd-gray-300">
+            <h2 class="bgd-gray-400"><i class="fa fa-4x contact-us contact-us-sa wow bounceIn text-primary"
+                                        data-wow-delay=".3s"></i><span>South Africa</span></h2>
+
+            <p><strong>1st Floor West Wing</strong>, 19 Harley Street, Ferndale,
+                <strong>Randburg</strong> 2194</p>
+
+            <h2 class="bgd-gray-400"><i class="fa fa-4x contact-us contact-us-nig wow bounceIn text-primary"
+                                        data-wow-delay=".3s"></i><span>Nigeria</span></h2>
+
+            <p><strong>Valley View Plaza</strong>, No 99 Opebi Road,
+                Ikeja, Lagos</p>
+
+            <h2 class="bgd-gray-400"><i class="fa fa-4x contact-us contact-info wow bounceIn text-primary"
+                                        data-wow-delay=".3s"></i><span>Contact Info</span></h2>
+
+            <p><i class="fa fa-4x contact-us-sub contact-tel wow bounceIn text-primary"
+                  data-wow-delay=".3s"></i><span>+27 (0)11 399-1749</span></p>
+
+            <p><i class="fa fa-4x contact-us-sub contact-email wow bounceIn text-primary"
+                  data-wow-delay=".3s"></i>
+                <span><a href="mailto:info@yadxdigital.com">
+                    <strong>info@yadxdigital.com</strong></a></span></p>
+
+            <div class="socials-box text-center bgd-gray-500">
+                <ul class="inline-list">
+                    <li>
+                        <a href="http://www.yookos.com/community/yadex">
+                            <img class="logo" src="/static/images/yookos.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.facebook.com/yadxdigital">
+                            <img class="logo" src="/static/images/facebook.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.twitter.com/yadxdigital">
+                            <img class="logo" src="/static/images/twitter.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/blog">
+                            <img class="logo" src="/static/images/google.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.linkedin.com/yadxdigital">
+                            <img class="logo" src="/static/images/linkedin.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /.row -->
+</section>
+<!-- <div class="arrow_box gray_100"></div> -->
+<!-- Section A Ends -->

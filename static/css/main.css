@@ -1,0 +1,137 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700,500,500italic,400italic,300italic,300,100italic,100,700italic);
+
+/********General ******************************/
+html, body {
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: 300;*/
+    height: 100%;
+    padding-bottom: 0px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #e9eaed;
+}
+
+/*****Columns and how they style******/
+.cols-holder-main {
+    padding-top: 10px;
+    position: relative;
+}
+
+.c-left-col {
+    width: 290px;
+    padding: 0;
+    float: left;
+    margin: 0;
+}
+
+.c-center-col {
+    width: 590px;
+    margin: 0 10px;
+    padding: 0;
+    float: left;
+}
+
+.c-right-col {
+    width: 290px;
+    margin-left: 0px;
+    padding: 0;
+    float: right;
+}
+
+/******Media Screens******/
+@media (min-width: 928px) and (max-width: 1206px) {
+    /*****Columns and how they style******/
+    .cols-holder-main {
+        margin-top: 0px;
+        position: relative;
+    }
+
+    .c-left-col {
+        width: 290px;
+        padding: 0;
+        float: left;
+        display: block;
+        margin: 0 0 0px 0;
+    }
+
+    .c-center-col {
+        width: 590px;
+        margin: 0 0 0 10px;
+        padding: 0;
+        float: right;
+        display: inline-block;
+        min-height: 800px;
+    }
+
+    .c-right-col {
+        width: 290px;
+        margin-left: 0px;
+        padding: 0;
+        left: 0;
+        bottom: 0;
+        float: left;
+    }
+
+}
+
+@media (min-width: 620px) and (max-width: 927px) {
+    /*****Columns and how they style******/
+    .cols-holder-main {
+        margin-top: 0px;
+    }
+
+    .c-left-col {
+        width: 290px;
+        padding: 0;
+        float: left;
+        margin: 0 0 10px 0;
+        visibility: hidden;
+        display: none;
+    }
+
+    .c-center-col {
+        width: 590px;
+        margin: 0 0 0 0px;
+        padding: 0;
+        float: none;
+    }
+
+    .c-right-col {
+        width: 290px;
+        margin-left: 0px;
+        padding: 0;
+        float: left;
+        left: 0;
+        visibility: hidden;
+        display: none;
+    }
+
+}
+
+@media (max-width: 619px) {
+    /*****Columns and how they style******/
+    .cols-holder-main {
+        margin-top: 0px;
+    }
+
+    .c-left-col {
+        visibility: hidden;
+        display: none;
+    }
+
+    .c-center-col {
+        width: 100%;
+        margin: 0 0 0 0px;
+        padding: 0;
+        float: none;
+    }
+
+    .c-right-col {
+        visibility: hidden;
+        display: none;
+    }
+}
