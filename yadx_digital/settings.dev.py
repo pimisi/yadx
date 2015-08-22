@@ -157,7 +157,6 @@ MEDIA_ROOT = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__fil
 MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
-# STATIC_ROOT = '/var/www/yadxdigital.com/static/'
 STATIC_ROOT = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'static'))
 
 # URL prefix for static files.

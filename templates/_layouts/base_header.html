@@ -41,19 +41,26 @@
                 </div>
             </div>
             <!-- /.navbar-collapse -->
-            <div class="nav-buttons"><a href="{{ server_links.sign_up }}" class="btn btn-default page-scroll">Sign Up</a></div>
+            <div class="nav-buttons"><a href="{{ server_links.host }}{{ server_links.sign_up }}"
+                                        class="btn btn-default page-scroll">Sign Up</a></div>
         </div>
         <!-- /.container-fluid -->
     </nav>
 
-    <nav id="logoBar" class="container navbar navbar-default navbar-fixed-top">
+    <nav id="logoBar" class="container navbar navbar-default navbar-fixed-top" ng-controller="MainController">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand page-scroll" href="#/">
                     <img class="logo" src="{% static 'images/yadx_logo.png' %}" alt=""></a>
 
-                <div class="nav-buttons"><a href="{{ server_links.sign_in }}" class="btn btn-primary page-scroll">Sign In</a></div>
+                <div class="nav-buttons">
+                    <a ng-show="signInEnabled" href="{{ server_links.host }}{{ server_links.advertiser_sign_in }}"
+                                            class="btn btn-primary page-scroll">Advertiser Sign In</a>
+                    <a ng-show="signInEnabled" href="{{ server_links.host }}{{ server_links.publisher_sign_in }}"
+                                            class="btn btn-primary page-scroll">Publisher Sign In</a>
+                    <a ng-show="!signInEnabled" ng-click="enableSignIn()"
+                                            class="btn btn-primary page-scroll">Sign In</a></div>
             </div>
 
         </div>

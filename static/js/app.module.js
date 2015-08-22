@@ -18,7 +18,8 @@
             'ui.router',
             'ui.bootstrap',
             'angular-storage',
-            'angular-jwt']
+            'angular-jwt'
+        ]
     )
         .constant('AUTH_EVENTS', {
             loginSuccess: 'auth-login-success',
@@ -35,8 +36,9 @@
             guest: 'guestUser'
         })
         .constant('SERVER_LINKS', {
-            signUp: "http://yookosadserver.local.192.168.2.25.xip.io:8890/index.php/user_registration",
-            advertiserLogin: "http://yookosadserver.local.192.168.2.25.xip.io:8890/index.php/user_login/advertiser",
-            publisherLogin: "http://yookosadserver.local.192.168.2.25.xip.io:8890/index.php/user_login/publisher"
+            host: "http://192.168.120.20:8080",
+            signUp: "/index.php/user_registration",
+            advertiserLogin: "/index.php/user_login/advertiser",
+            publisherLogin: "/index.php/user_login/publisher"
         });
 })();

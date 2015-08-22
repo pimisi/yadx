@@ -13,8 +13,11 @@ class HomePageView(generic.TemplateView):
 
         # context['current_user'] = session_data.get('username')
         context['server_links'] = {
-            "sign_up": "http://yookosadserver.local.192.168.2.25.xip.io:8890/index.php/user_registration",
-            "sign_in": "http://yookosadserver.local.192.168.2.25.xip.io:8890/"
+            "host": "http://192.168.120.20:8080",
+            "sign_up": "/index.php/user_registration",
+            "sign_in": "/",
+            "advertiser_sign_in": "/index.php/user_login/advertiser",
+            "publisher_sign_in": "/index.php/user_login/publisher"
         }
 
         return context

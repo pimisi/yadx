@@ -46,6 +46,11 @@
 
         // Links
         $scope.links = SERVER_LINKS;
+        $scope.signInEnabled = false;
+
+        $scope.enableSignIn = function() {
+            $scope.signInEnabled = true;
+        }
 
         // get referrer
         var matchPattern = /^http[s]*:\/\/[\w\d\.:]+[\/#]*\/(contact-us)[\/]*/i;

@@ -934,7 +934,7 @@ strong {
         float: right;
     }
 
-    .about-us-info-box {
+    .about-us-info-box:not(section#about) {
         padding: 0 30px 0 0;
     }
 
